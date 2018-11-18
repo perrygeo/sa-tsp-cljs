@@ -1,7 +1,8 @@
-# simanneal
+# sa-tsp-cljs
 
-A [re-frame](https://github.com/Day8/re-frame) application designed to demonstrate simulated
-annealing optimization using the travelling salesman problem.
+An application to demonstrate **simulated annealing** optimization via the **traveling salesman problem**.
+Implemented in Clojurescript and [re-frame](https://github.com/Day8/re-frame).
+
 
 ## Status
 
