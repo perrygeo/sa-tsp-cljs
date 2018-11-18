@@ -8,12 +8,15 @@ Implemented in Clojurescript and [re-frame](https://github.com/Day8/re-frame).
 
 WIP
 
+<img src="https://raw.github.com/perrygeo/sa-tsp-cljs/master/screenshot.png"/>
+
+
 ## TODO
 
-* Experiment with different neighbor functions
-* Performance optimization
-* Graphs
 * Deploy a production build
+* Performance optimization
+* Experiment with different neighbor functions
+* Graphs
 * Expose acceptance, rejection and improvement rates
 * Disentangle TSP and SA namespaces into src/cljc and fill out the clojure side
 
