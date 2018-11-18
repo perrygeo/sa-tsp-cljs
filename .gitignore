@@ -1,0 +1,11 @@
+/*.log
+/target
+/*-init.clj
+/resources/public/js/compiled
+out
+.*.swp
+.cljs_nashorn_repl/
+.lein-repl-history
+.rebel_readline_history
+nashorn_code_cache/
+pom.xml
