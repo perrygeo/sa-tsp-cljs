@@ -77,7 +77,6 @@
         </header>
 
         <summary>
-
             <p>
             The objective of the <a>Traveling Salesman Problem</a>
             is to find the shortest tour connecting all cities on a hypothetical road trip.
@@ -95,7 +94,6 @@
             almost any move will be accepted. As the <em>temperature</em> decreases, the algorithm
             becomes more picky with a decreasing chance of accepting of sub-optimal moves.
             </p>
-
         </summary>
 
         <!-- CLJS init -->
@@ -136,17 +134,18 @@
             </p>
 
             <p>
-            Implemented in Clojurescript using <a href="https://github.com/Day8/re-frame">re-frame</a> and React.
+            Implemented in Clojurescript with React.
             Why? CLJS provides persistent data structures, immutability, state management,
-            and encourages a functional style - all characteristics of many great Javascript stacks but
-            built into the language by design, making it ideal for single page applications.
-            Read more about my <a href="">experiences with Clojure</a>.
+            and enforces a functional style that meshes well with React's virtual DOM.
+            You get many of these characteristics via some modern Javascript stacks but
+            with CLJS it's built into the language by design,
+            making it ideal for single page applications.
             </p>
         </section>
         <footer>
             <span>
-              Source code: <a>https://github.com/perrygeo/sa-tsp-demo</a> |
-              Copyright 2018 &copy; Matthew Perry
+              Source code: <a>https://github.com/perrygeo/sa-tsp-cljs</a> |
+              &copy; 2018, Matthew Perry
             </span>
         </footer>
     </body>
