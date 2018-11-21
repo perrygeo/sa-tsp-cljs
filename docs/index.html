@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta charset='utf-8'>
+        <link rel="stylesheet"
+              type="text/css"
+              href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.css">
+        <style>
+            path {
+                stroke: steelblue;
+                stroke-width: 2;
+                fill: none;
+            }
+            body { padding: 1.5rem; font-family: serif; }
+            h1 { font-size: 1.67em; }
+            h2 { font-size: 1.33em; border-bottom: 1.33em; }
+            .top { align-items: flex-start; }
+            .bottom { align-items: flex-end; }
+            .single-spaced { line-height: 1; }
+            .hidden { }
+            ul {
+              display: block;
+              list-style-type: disc;
+              margin-block-start: 1em;
+              margin-block-end: 1em;
+              margin-inline-start: 0px;
+              margin-inline-end: 0px;
+              padding-inline-start: 20px;
+            }
+            body { width: 880px; margin: 0 auto;}
+            svg { height: 560; width: 360;}
+            main, section, summary, header { margin-top: 1rem; margin-bottom: 2rem; }
+            footer {
+              font-size: 0.85em;
+              font-family: serif;
+              right: 0;
+              bottom: 0;
+              left: 0;
+              text-align: center;
+              border-top: 1px #eee solid;
+              padding-top: 2rem;
+            }
+            .results { font-family: monospace;}
+            p { margin-top: 0.67em; margin-bottom: 1em;}
+            .top, .bottom {
+                display: flex;
+                justify-content: top;
+                align-items: top;
+            }
+            path.line {
+              stroke: "steelblue";
+              stroke-width: 1.005;
+              stroke-opacity: 0.5;
+              fill: "none";
+            }
+            .chart-row-heading {
+              font-size: smaller;
+              font-weight: 700;
+              float: right;
+            }
+            div.chart-row { padding-top: 0; padding-bottom: 0; margin-top: 0; margin-bottom: 0 !important; }
+            div.chart-column { padding-top: 0; padding-bottom: 0; margin-top: 0; margin-bottom: 0; }
+            svg.chart-row { height: 36px; width: 100%; border-bottom: 1px lightgrey solid; }
+            svg#temp-schedule { }
+            svg#energy { }
+        </style>
+    </head>
+
+    <body>
+        <header>
+            <h1>Interactive Simulated Annealing</h1>
+            <h2>and the Traveling Salesman Problem</h2>
+            <p class="bylines-right">
+                Matthew Perry. Nov 24, 2018
+            </p>
+        </header>
+
+        <summary>
+
+            <p>
+            The objective of the <a>Traveling Salesman Problem</a>
+            is to find the shortest tour connecting all cities on a hypothetical road trip.
+            This project isn't meant as a computationally-efficient way to solve TSP -
+            there are plenty of faster, production-ready routing algorithms available. Rather TSP is a
+            uniquely intuitive scenario; human vision can pick out a decent solution quickly
+            leaving our mind free to develop an intuition for the underlying optimization algorithm.
+            </p>
+
+            <p>
+            <a>Simulated Annealing</a> is an optimization technique to find a solution
+            within a large, discrete search space.
+            It converges on a final stable solution using a process analgous to cooling metals in metallurgy.
+            At first, when the <em>temperature</em> is high, we scan the breadth of the search space -
+            almost any move will be accepted. As the <em>temperature</em> decreases, the algorithm
+            becomes more picky with a decreasing chance of accepting of sub-optimal moves.
+            </p>
+
+        </summary>
+
+        <!-- CLJS init -->
+        <main>
+            <div id="app"></div>
+            <script src="js/compiled/app.js"></script>
+            <script>simanneal.core.init();</script>
+        </main>
+
+        <section>
+            <p>
+            While there are faster optimization techniques and faster domain-specific algorithms, SA
+            remains useful for pragmatic reasons.
+            When run long enough, it will eventually find the global optimum. But it can also be tuned to
+            find an approximate solution quickly by reducing the iterations.
+            In other words, you can explicitly trade off precision for speed.
+            The implementation is relatively simple across programming languages
+            and the generic nature of SA means that many problem domains beyond TSP
+            can be modeled using this heurstic.
+            </p>
+
+            <p>
+            The general mechanics of a simulated annealing implementation involve:
+
+            <ul>
+                <li>The state of the system represented as a single data structure.</li>
+                <li>The state's neighbor, a random mutation, is represented as a function from old state to new state.</li>
+                <li>The state's energy function is a function from state to scalar value.</li>
+            </ul>
+
+            In the case of the traveling salesman problem:
+
+            <ul>
+                <li>Our state is an ordered list of points which are visted in sequence to create a tour.</li>
+                <li>Our neighbor function randomly shuffles two adjacent points.</li>
+                <li>Our energy function is the cumulative distance of the tour.</li>
+            </ul>
+            </p>
+
+            <p>
+            Implemented in Clojurescript using <a href="https://github.com/Day8/re-frame">re-frame</a> and React.
+            Why? CLJS provides persistent data structures, immutability, state management,
+            and encourages a functional style - all characteristics of many great Javascript stacks but
+            built into the language by design, making it ideal for single page applications.
+            Read more about my <a href="">experiences with Clojure</a>.
+            </p>
+        </section>
+        <footer>
+            <span>
+              Source code: <a>https://github.com/perrygeo/sa-tsp-demo</a> |
+              Copyright 2018 &copy; Matthew Perry
+            </span>
+        </footer>
+    </body>
+</html>

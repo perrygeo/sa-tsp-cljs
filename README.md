@@ -30,6 +30,8 @@ open "http://localhost:3449/"
 
 ## Production Build
 
+TODO wrap in Makefile
+
 ```
 lein clean
 lein cljsbuild once min
