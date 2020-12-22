@@ -11,7 +11,7 @@ https://perrygeo.github.io/sa-tsp-cljs/
 
 First draft
 
-<img src="https://raw.github.com/perrygeo/sa-tsp-cljs/master/screenshot.png"/>
+<img src="https://raw.github.com/perrygeo/sa-tsp-cljs/master/screenshot.png" width=540/>
 
 
 ## TODO
